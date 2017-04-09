@@ -1,0 +1,26 @@
+INSTRCUTIONS:
+
+1. Copy the folder email (with class files) to the folder where your webpages are placed.
+2. Copy the Email Sending Code and place it where you want to send the email.
+3. Change settings as required:
+
+	a) $mail->Host       = "smtp.gmail.com"; // You can also use yahoo/rediff etc.
+	b) $mail->SMTPDebug  = 0;               // use 1 and 2 for getting error information if email not sent
+	c) $mail->SMTPAuth   = true;           // set this to true if using smtp
+	d) $mail->SMTPSecure = "ssl";         // you can also use tls
+	e) $mail->Port       = 465;          // SMTP port for the GMAIL - 465 (ssl) or 587 (tls)
+	f) $mail->Username   = "XXXXXX@gmail.com";  // create a dummy GMAIL username and use it here
+	g) $mail->Password   = "PASSWORD HERE";    // GMAIL password of the created account
+	h) $mail->SetFrom('XXXXXX@gmail.com', 'Technology Center, SRKR'); //Part-1: Gmail ID; Part-2:What name you want to display in Inbox
+	i) $mail->Subject    = "APSSDC Project Details"; //Give the subject of the email
+	j) $mail->Body = "This is the test mail sent from code!\n~APSSDC Project Team"; //Give the email text here; '\n' (newline) will work
+	h) $mail->AddAddress("suresh.mudunuri@gmail.com"); //enter the sender email address; you can add many statements with different emails
+
+4. Incase, of any error due to permission denied, please follow the below steps:
+	a) You need to login to gmail using the newly created account and set the option 'Access to less secure apps' to 'ON'
+	   https://www.google.com/settings/security/lesssecureapps
+	b) For linux machines, the problem might be that the system is not allowed to send emails. In that case, execute the following commands: 
+	   sudo setsebool -P httpd_can_sendmail 1
+	   sudo setsebool -P httpd_can_network_connect 1
+
+
